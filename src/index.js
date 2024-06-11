@@ -9,7 +9,7 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
   const data = fs.readFileSync(process.cwd() + '/src/test.txt', 'utf-8')
-  res.send({status: 'successs', data})
+  res.send({status: 'successs', data: JSON.parse(data)})
 })
 
 app.listen(3004, () => console.log('server runn'))
