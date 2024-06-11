@@ -7,9 +7,9 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.get('/:name', (req, res) => {
-  fs.writeFileSync(process.cwd() + `/${req.params.name}.json`, '[]', 'utf-8')
-  res.send({status: 'successs'})
+app.get('/', (req, res) => {
+  const data = fs.readFileSync(process.cwd() + '/src/test.txt', 'utf-8')
+  res.send({status: 'successs', data})
 })
 
 app.listen(3004, () => console.log('server runn'))
